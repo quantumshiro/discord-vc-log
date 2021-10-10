@@ -20,13 +20,14 @@ async def on_ready():
 @client.event
 async def on_voice_state_update(member, before, after):
     if member.guild.id == 762884002591801344: # server id
-		# text_ch = client.get_channel(882893372908503040) # channnel id 
-        text_ch = client.get_channel(896349123513561118) # channnel id 
+		text_ch = client.get_channel(882893372908503040) # channnel id 
+		# text_ch = client.get_channel(896349123513561118)
         if before.channel is None:
             msg = f'{member.name} が {after.channel.name} に参加しました。'
-            await text_ch.send(msg)
+            await text_ch.author.send(msg)
 		if after.channel is None:
 			msg = f'{member.name}が{after.channel}が退出しました。'
+			await text_ch.author.send(msg)
 
 '''
 botのトークン
